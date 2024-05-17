@@ -5,6 +5,8 @@ const MongoStore = require('connect-mongo');
 const userRoutes = require('./routes/user');
 
 const app = express();
+require('./db')();
+
 
 mongoose.connect('mongodb://localhost:27017/authDB', {
   useNewUrlParser: true,

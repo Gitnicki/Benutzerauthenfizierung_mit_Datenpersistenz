@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/authDB", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect("mongodb://localhost:27017/authDB");
         console.log('MongoDB connection established');
     } catch (err) {
         console.error(err.message);
@@ -13,4 +10,4 @@ const connectDB = async () => {
     }
 };
 
-__esModule.exports = connectDB;
+module.exports = connectDB;
