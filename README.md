@@ -4,7 +4,7 @@
 - Register Route zum anlegen und speichern von Userinformationen in einer MongoDB (Username, Email, Password)
 - Login Route zur Authentifizierung von Usern mit Benutzername/Email und Passwort
 - Logout Route und den User zu De-Authentifizieren
-Hinweise:
+# Hinweise:
 - Nutze das mongoose Package um ein Datenmodel für den User zu erstellen
 - Nutze bcrypt um die Passwörter verschlüsselt in der DB zu speichern
 - Nutze brypt compare für Benutzername und Passwort-Überprüfung.
