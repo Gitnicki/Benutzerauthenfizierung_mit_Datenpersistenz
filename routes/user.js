@@ -38,23 +38,23 @@ router.post('/register', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
-    const { usernameOrEmail, password } = req.body;
+    const { email, password } = req.body;
   
     // Validate input
-    if (!usernameOrEmail || !password) {
+    if (!email || !password) {
       return res.status(400).json({ message: 'All fields are required' });
     }
   
     // Check if user exists
-    const user = await User.findOne({ $or: [{ username: usernameOrEmail }, { email: usernameOrEmail }] });
+    const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: 'Invalid username or email' });
+      return res.status(400).json({ message: 'Invalid email' });
     }
   
     // Compare passwords
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res.status(400).json({ message: 'Invalid password' });
+        return res.status(400).json({ message: 'Invalid password' });
     }
   
     // Create and assign a token
